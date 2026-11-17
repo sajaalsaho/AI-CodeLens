@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AI-CodeLens.API/AI-CodeLens.API.csproj" />
+  <Project Path="AI-CodeLens.Application/AI-CodeLens.Application.csproj" />
+  <Project Path="AI-CodeLens.Domain/AI-CodeLens.Domain.csproj" />
+  <Project Path="AI-CodeLens.Infrastructure/AI-CodeLens.Infrastructure.csproj" />
+</Solution>
