@@ -1,3 +1,4 @@
+
 using Microsoft.AspNetCore.Mvc;
 using AI_CodeLens.Application.DTOs;
 using AI_CodeLens.Application.Interfaces;
@@ -19,11 +20,15 @@ public class CodeReviewController : ControllerBase
     public async Task<ActionResult<ReviewResponse>> ReviewCode(
         [FromBody] ReviewRequest request)
     {
-        var session = await _codeReviewService.ReviewCodeAsync(request.Code);
+        var session = await _codeReviewService.ReviewCodeAsync(
+            request.Code,
+            request.FileName
+        );
 
         var response = new ReviewResponse
         {
             ReviewSessionId = session.Id,
+            FileName = session.FileName,
             Status = session.Status,
             Findings = session.Findings
         };

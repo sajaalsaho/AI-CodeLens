@@ -1,0 +1,219 @@
+/* Tüm sayfalarda ortak */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --purple: #7960e8;
+    --purple-dark: #6049c5;
+    --lavender: #eee8fc;
+
+    --text: #29263d;
+    --muted: #858198;
+    --white: #ffffff;
+    --border: #e9e3f0;
+
+    --critical: #e65b68;
+    --warning: #e6a13d;
+    --info: #6684e8;
+
+    --editor-bg: #353454;
+    --editor-light: #464467;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #f1e9e5 0%, #e9e0eb 55%, #d8cce7 100%);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 8px;
+}
+
+button,
+select {
+    font-family: inherit;
+}
+
+button:focus-visible,
+select:focus-visible {
+    outline: 2px solid #927df0;
+    outline-offset: 2px;
+}
+
+::selection {
+    background: #b9a9f4;
+    color: #29263d;
+}
+
+
+/* ÜST MENÜ */
+
+.topbar {
+    height: 54px;
+    padding: 0 14px;
+
+    background: linear-gradient(100deg, #f3f4f1 0%, #d9eeee 54%, #e8def2 100%);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    box-shadow: 0 3px 12px rgba(76, 57, 112, 0.06);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.logo img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    display: block;
+    border-radius: 7px;
+}
+
+.logo span {
+    font-size: 14px;
+    font-weight: 750;
+    color: #29263d;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+
+    padding: 4px;
+    background: rgba(239, 229, 249, 0.9);
+    border-radius: 30px;
+}
+
+.nav-item {
+    border: none;
+    background: transparent;
+
+    padding: 9px 17px;
+    border-radius: 25px;
+
+    color: #68647c;
+    font-size: 11px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s ease;
+}
+
+.nav-item.active {
+    background: #ffffff;
+    color: #29263d;
+    font-weight: 650;
+}
+
+.nav-item:hover {
+    color: var(--purple-dark);
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.avatar {
+    width: 27px;
+    height: 27px;
+
+    background: #eee8ff;
+    color: var(--purple-dark);
+
+    border: 1px solid #d7c9ff;
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* ORTAK PANEL */
+
+.panel {
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 17px;
+
+    padding: 12px;
+
+    box-shadow:
+        0 4px 15px rgba(65, 48, 120, 0.07),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+
+    min-width: 0;
+    overflow: hidden;
+}
+
+
+/* ORTAK BUTONLAR*/
+
+.new-review {
+    width: 100%;
+
+    background: linear-gradient(100deg, #7458e8, #725be5);
+
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+
+    padding: 10px 12px;
+
+    font-weight: 600;
+    font-size: 11px;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.review-button,
+#documentationButton {
+    border: none;
+
+    background: linear-gradient(100deg, #8064ec, #7055df);
+
+    color: white;
+
+    border-radius: 22px;
+    padding: 10px 16px;
+
+    font-size: 10px;
+    font-weight: 650;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.new-review:hover,
+.review-button:hover {
+    background: var(--purple-dark);
+}
+
+.review-button:disabled,
+#documentationButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

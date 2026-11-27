@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeLens AI</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <header class="topbar">
+
+        <div class="logo">
+            <img src="images/CodeLensLogo.jpg" alt="CodeLens AI Logo">
+            <span>CodeLens AI</span>
+        </div>
+
+        <nav class="navigation">
+
+            <button class="nav-item active">
+                <!-- <img src="images/scan-line.png" class="nav-icon" alt=""> -->
+                <span>İnceleme</span>
+            </button>
+
+            <button class="nav-item">
+                <!-- <img src="images/rotate-ccw-clock.png" class="nav-icon" alt=""> -->
+                <span>Geçmiş</span>
+            </button>
+
+            <button class="nav-item">
+                <!-- <img src="images/settings-2.png" class="nav-icon" alt=""> -->
+                <span>Ayarlar</span>
+            </button>
+
+        </nav>
+
+        <div class="user-menu">
+            <span class="avatar">AK</span>
+            <span>Kullanıcı</span>
+        </div>
+
+    </header>
+
+    <main class="dashboard">
+
+        <aside class="history-panel panel">
+
+            <button class="new-review">
+            <!-- <img src="images/plus.png" class="ui-icon" alt=""> -->
+                Yeni İnceleme
+            </button>
+
+            <div class="section-heading">
+                <span>Son İncelemeler</span>
+                <span id="historyCount">0</span>
+            </div>
+
+            <div class="history-list" id="historyList">
+                <div class="empty-state">
+                    Henüz inceleme geçmişi bulunmuyor.
+                </div>
+            </div>
+
+            <div class="privacy-note">
+
+                <strong>
+                    <!-- <img src="images/shield-check.png" class="ui-icon" alt=""> -->
+                    Kodunuz size özel.
+                </strong>
+
+                <p>
+                    Dosyalarınız yalnızca inceleme için işlenir,
+                    model eğitiminde kullanılmaz.
+                </p>
+
+            </div>
+
+            <div class="system-status">
+                <!-- <img src="images/circle-check.png" class="ui-icon" alt=""> -->
+                Tüm sistemler çalışıyor
+            </div>
+
+        </aside>
+
+        <section class="editor-panel panel">
+
+            <div class="editor-toolbar">
+                <span id="fileNameDisplay" class="file-name">
+                    Untitled-1
+                </span>
+
+                <div class="toolbar-actions">
+
+                    <select id="languageSelect">
+                        <option value="C#">Dil: C#</option>
+                    </select>
+
+                    <label class="upload-button">
+
+                        <!-- <img src="images/upload.png" class="ui-icon" alt=""> --->
+                        Dosya yükle
+
+                        <input type="file" id="fileInput" hidden>
+                    </label>
+                </div>
+
+            </div>
+
+
+            <div class="editor-container">
+
+                <div class="editor-title">
+
+                    <span id="editorFileName">
+                        Kaynak / Untitled-1
+                    </span>
+
+                    <span class="editor-tools">
+                    <!-- <img src="images/maximize.png" class="ui-icon" alt="">-->
+                    </span>
+
+                </div>
+
+                <textarea
+                    id="codeInput"
+                    spellcheck="false"
+                    placeholder="İncelemek istediğiniz kodu buraya yazın..."
+                ></textarea>
+
+                <div class="editor-footer">
+                    <span>C# · UTF-8</span>
+                    <span id="lineInfo">0 satır</span>
+                </div>
+
+            </div>
+
+
+            <div class="editor-bottom">
+
+                <div class="review-status">
+
+                    <strong>
+                    <!--   <img src="images/circle-check-big.png" class="ui-icon" alt=""> -->
+                        İncelemeye hazır
+                    </strong>
+
+                    <small>
+                        Kodunuzu analiz etmek için butona basın.
+                    </small>
+
+                </div>
+
+                <button class="review-button" id="reviewButton">
+
+                    <!--   <img src="images/wand-sparkles.png" class="ui-icon" alt=""> -->
+                    Kodu İncele
+
+                </button>
+
+            </div>
+
+
+            <div class="documentation-area">
+
+                <button id="documentationButton">
+
+                <!--   <img src="images/book-open.png" class="ui-icon" alt=""> -->
+                    Dokümantasyon Oluştur
+
+                </button>
+
+                <div id="documentationResult"></div>
+
+            </div>
+
+        </section>
+
+
+        <aside class="results-panel panel">
+
+            <div class="results-heading">
+
+                <span>İnceleme özeti</span>
+
+                <!--<img src="images/list-filter.png" class="ui-icon" alt="">-->
+
+            </div>
+
+
+            <div class="result-count">
+
+                <strong id="findingCount">0</strong>
+                <span>bulgu tespit edildi</span>
+
+            </div>
+
+
+            <div class="severity-summary">
+
+                <span class="critical">
+                <!--   <img src="images/circle-exclamation-point.png" class="ui-icon" alt=""> -->
+                    0 Kritik
+                </span>
+
+                <span class="warning">
+                    <!--   <img src="images/triangle-exclamation-point.png" class="ui-icon" alt=""> -->
+                    0 Uyarı
+                </span>
+
+                <span class="info">
+                    0 Bilgi
+                </span>
+
+            </div>
+
+
+            <div id="findingsList" class="findings-list">
+
+                <div class="empty-state">
+                    Kodunuzu inceleyerek sonuçları burada görebilirsiniz.
+                </div>
+
+            </div>
+
+
+            <div class="results-footer">
+
+                <!--<img src="images/sparkles.png" class="ui-icon" alt="">-->  
+                Yapay zekâ önerilerini uygulamadan doğrulayın.
+
+            </div>
+
+        </aside>
+
+
+    </main>
+        <script type="module" src="js/main.js"></script>
+</body>
+</html>

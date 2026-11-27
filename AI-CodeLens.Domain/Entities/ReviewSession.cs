@@ -1,8 +1,11 @@
-﻿namespace AI_CodeLens.Domain.Entities;
+﻿
+namespace AI_CodeLens.Domain.Entities;
 
 public class ReviewSession
 {
     public int Id { get; set; }
+
+    public string FileName { get; set; } = string.Empty;
 
     public string Code { get; set; } = string.Empty;
 
